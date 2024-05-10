@@ -3,12 +3,10 @@ package selenide;
 import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
 import config.InitDriverProvider;
-import config.InitFirefoxDriver;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;
-import static config.InitSelenideViaWebDriverRunner.initWebDriverRunner;
 import static org.example.AlertsPage.*;
 import static org.example.DynamicControlsPage.*;
 
@@ -17,7 +15,7 @@ public class Test2 extends BasePageTest{
 
     @Test
     public void Test6(){
-        InitFirefoxDriver.initFirefoxDriver();
+        Configuration.browser = InitDriverProvider.class.getName();
         open("/dynamic_controls");
         inputFieldToBeDisabled();
         clickToEnableBtn();
@@ -31,7 +29,7 @@ public class Test2 extends BasePageTest{
 
     @Test
     public void Test7() {
-        initWebDriverRunner();
+        Configuration.browser = InitDriverProvider.class.getName();
         open("/dynamic_controls");
         checkBoxExistActiveNotChecked();
         clickAndCheckedCheckBox();

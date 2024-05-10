@@ -1,6 +1,8 @@
 package selenide;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import config.InitDriverProvider;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,6 +14,7 @@ public class Test1 extends BasePageTest{
 
     @Test
     public void alertTest(){
+        Configuration.browser = InitDriverProvider.class.getName();
         open("/javascript_alerts");
         clickToClickForJsAlertBtn();
         Assert.assertEquals(switchTo().alert().getText(), "I am a JS Alert");
@@ -22,6 +25,7 @@ public class Test1 extends BasePageTest{
 
     @Test
     public void confirmTest(){
+        Configuration.browser = InitDriverProvider.class.getName();
         open("/javascript_alerts");
         clickToClickForJsConfirmBtn();
         Assert.assertEquals(switchTo().alert().getText(), "I am a JS Confirm");
@@ -32,6 +36,7 @@ public class Test1 extends BasePageTest{
 
     @Test
     public void promptTest(){
+        Configuration.browser = InitDriverProvider.class.getName();
         open("/javascript_alerts");
         clickToClickForJsPromptBtn();
         Assert.assertEquals(switchTo().alert().getText(), "I am a JS prompt");
@@ -43,6 +48,7 @@ public class Test1 extends BasePageTest{
 
     @Test
     public void confirmViaCoTest(){
+        Configuration.browser = InitDriverProvider.class.getName();
         open("/javascript_alerts");
         clickToConfirmViaClickOptions();
         Assert.assertEquals(switchTo().alert().getText(), "I am a JS Confirm");
@@ -53,6 +59,7 @@ public class Test1 extends BasePageTest{
 
     @Test
     public void confirmViaJsTest(){
+        Configuration.browser = InitDriverProvider.class.getName();
         open("/javascript_alerts");
         clickToConfirmViaJsExecuter();
         Assert.assertEquals(switchTo().alert().getText(), "I am a JS Confirm");

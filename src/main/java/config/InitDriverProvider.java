@@ -11,11 +11,13 @@ import javax.annotation.Nonnull;
 public class InitDriverProvider implements WebDriverProvider{
     @Nonnull
     @Override
-    public WebDriver createDriver(@Nonnull Capabilities capabilities){
+    public WebDriver createDriver(@Nonnull Capabilities capabilities) {
         ChromeOptions options = new ChromeOptions();
+        options.addArguments("--no-sandbox");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
         ChromeDriver driver = new ChromeDriver(options);
         driver.manage().window().maximize();
         return driver;
-
     }
 }
