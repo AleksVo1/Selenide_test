@@ -20,5 +20,4 @@ jobs:
     - run: chrome --version
     
     - name: Run tests with Maven
-      working-directory: wedriver_java
       run: mvn run
