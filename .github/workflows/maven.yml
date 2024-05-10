@@ -21,3 +21,7 @@ jobs:
     
     - name: Run tests with Maven
       run: mvn test
+      
+    - name: Collect build data
+      if: always()
+      run: expr $(date +%s) - $(START_TIME)
