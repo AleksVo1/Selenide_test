@@ -20,8 +20,5 @@ jobs:
     - run: chrome --version
     
     - name: Run tests with Maven
-      run: mvn test
-      
-    - name: Collect build data
-      if: always()
-      run: expr $(date +%s) - $(START_TIME)
+      run: mvn -B clean test
+    
